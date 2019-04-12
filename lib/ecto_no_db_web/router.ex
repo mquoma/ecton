@@ -18,7 +18,9 @@ defmodule EctoNoDbWeb.Router do
     pipe_through(:browser)
 
     get("/", PageController, :index)
-    get("/search", EventSearchController, :index)
+    get("search", EventSearchController, :search)
+
+    resources("/events", EventController, except: [:new, :edit])
   end
 
   # Other scopes may use custom stacks.
